@@ -10,7 +10,7 @@ const Root = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
         {units.map((unit) => 
-          <Route key={unit.id} path={`${unit.path}`} element={<Unit id={unit.id}/>}/>
+          <Route key={unit.id} path={`${unit.path}`} element={<Unit id={unit.id} title={unit.title}/>}/>
         )}
       </Routes>
     </div>

@@ -5,6 +5,7 @@ export const Container = styled.div`
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 80px;
 
     & .word-list__btn {
         width: 120px;
@@ -54,5 +55,20 @@ export const Container = styled.div`
 
     & .en-exam .arrow {
         margin-right: 10px;
+    }
+`;
+
+export const Navbar = styled.nav`
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    padding-left: 5px;
+
+    & .title {
+        font-size: 22px;
+        margin-left: 15px;
     }
 `;

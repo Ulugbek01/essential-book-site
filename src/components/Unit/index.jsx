@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Container } from './style'
+import {useNavigate} from 'react-router-dom';
+import { Container, Navbar } from './style'
 import speakerLouder from '../../assets/imgs/speaker_louder.png'
+import backArrow from '../../assets/imgs/circle_back_arrow-48.png'
 
-const Unit = ({id}) => {
+const Unit = ({id, title}) => {
+    const navigate = useNavigate();
     const [unit, setUnit] = useState({});
 
     useEffect(() => {
@@ -11,10 +14,12 @@ const Unit = ({id}) => {
       .then((res) => setUnit(res[id-1]))
   }, [id])
 
-  console.log(unit);
   return (
     <Container>
-        <h2>{unit.en}</h2>
+        <Navbar className='d-flex align-items-center'>
+            <img onClick={() => navigate('/')} width={35} src={backArrow} alt="circle_back_arrow img" className='c-pointer' />
+            <div className='title'>{title}</div>
+        </Navbar>
         <div className='word-list__btn'>Word List</div>
         {unit.wordlist?.map((item, index) => {
                 let audio = new Audio(`https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-${id}/wordlist/${item.sound}`);
@@ -41,6 +46,9 @@ const Unit = ({id}) => {
             )
         }
         )}
+        {/* <div className=''>
+            <img src={`https://www.essentialenglish.review/apps-data/4000-essential-english-words-1/data/unit-${id}/reading/${unit?.reading[0]?.image}`} alt="" />
+        </div> */}
     </Container>
   )
 }
