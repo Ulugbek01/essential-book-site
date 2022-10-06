@@ -72,3 +72,4 @@ export const Navbar = styled.nav`
         margin-left: 15px;
     }
 `;
+
